@@ -1,8 +1,7 @@
 const crypto = require('crypto');
 
 const groups = [];
-function createGroup(members) {
-	// const groupID = crypto.randomBytes(8).toString('hex');
+function setGroup(members) {
 	const groupID = 1;
 	const group = {};
 	group['id'] = groupID;
@@ -12,9 +11,11 @@ function createGroup(members) {
 		group['members'][member] = { id: memberID, netBalance: 0 };
 	});
 	groups.push(group);
+
+	return groups;
 }
 
 module.exports = {
 	groups,
-	createGroup,
+	setGroup,
 };
